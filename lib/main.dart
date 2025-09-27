@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'pages/caesar_page.dart';
 import 'pages/vigenere_page.dart';
 import 'pages/aes_page.dart';
-import 'pages/rsa_page.dart';
+import 'pages/ecc_page.dart'; // Diganti dari rsa_page.dart
 import 'pages/super_page.dart';
 
 void main() {
@@ -16,7 +16,6 @@ class CryptoApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Crypto App',
-      // Mengaktifkan Material 3 dan menggunakan ColorScheme modern
       theme: ThemeData(
         useMaterial3: true,
         colorScheme: ColorScheme.fromSeed(
@@ -31,14 +30,13 @@ class CryptoApp extends StatelessWidget {
           brightness: Brightness.dark,
         ),
       ),
-      themeMode: ThemeMode.system, // Otomatis mengikuti tema sistem
+      themeMode: ThemeMode.system,
       home: const MainMenu(),
       debugShowCheckedModeBanner: false,
     );
   }
 }
 
-// Data class sederhana untuk item menu
 class _MenuItem {
   final String title;
   final String subtitle;
@@ -58,7 +56,6 @@ class MainMenu extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Memisahkan data dari UI
     final List<_MenuItem> menuItems = [
       _MenuItem(
         title: "Caesar Cipher",
@@ -78,12 +75,14 @@ class MainMenu extends StatelessWidget {
         icon: Icons.looks_3,
         page: const AESPage(),
       ),
+      // --- PERUBAHAN DI SINI ---
       _MenuItem(
-        title: "RSA Encryption",
-        subtitle: "Asymmetric public-key encryption.",
+        title: "ECC Digital Signature",
+        subtitle: "Modern, efficient public-key signatures.",
         icon: Icons.looks_4,
-        page: const RSAPage(),
+        page: const ECCPage(), // Mengarah ke halaman ECC
       ),
+      // ------------------------
       _MenuItem(
         title: "Super Encryption",
         subtitle: "A multi-layer encryption chain.",

@@ -249,7 +249,7 @@ class _SuperPageState extends State<SuperPage> {
           ),
           _buildStepTile(
             Icons.swap_horiz,
-            "4. Reverse (Simulated RSA)",
+            "4. Reverse (Simulated ECC)",
             "Reverses the string for final layer.",
           ),
         ],
